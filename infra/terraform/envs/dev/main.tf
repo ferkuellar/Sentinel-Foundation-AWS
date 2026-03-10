@@ -2,12 +2,18 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-locals {
-  name_prefix = "${var.org_prefix}-sentinel-${var.environment}"
+data "aws_caller_identity" "current" {}
 
-  az_a = data.aws_availability_zones.available.names[0]
-  az_b = data.aws_availability_zones.available.names[1]
+locals {
+  name_prefix       = "${var.org_prefix}-sentinel-${var.environment}"
+  az_a              = data.aws_availability_zones.available.names[0]
+  az_b              = data.aws_availability_zones.available.names[1]
+  trail_bucket_name = lower(replace("${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}", "_", "-"))
 }
+
+# =========================================================
+# Phase 2 - Network Foundation
+# =========================================================
 
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
@@ -233,11 +239,9 @@ resource "aws_security_group" "alb_or_web" {
   }
 }
 
-locals {
-  trail_bucket_name = lower(replace("${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}", "_", "-"))
-}
-
-data "aws_caller_identity" "current" {}
+# =========================================================
+# Phase 3 - Logging, Encryption and Audit
+# =========================================================
 
 data "aws_iam_policy_document" "kms_key_policy" {
   statement {
@@ -385,11 +389,6 @@ data "aws_iam_policy_document" "cloudtrail_bucket_policy" {
   }
 }
 
-resource "aws_s3_bucket_policy" "audit_logs" {
-  bucket = aws_s3_bucket.audit_logs.id
-  policy = data.aws_iam_policy_document.cloudtrail_bucket_policy.json
-}
-
 resource "aws_cloudwatch_log_group" "cloudtrail" {
   name              = "/aws/cloudtrail/${local.name_prefix}"
   retention_in_days = var.cloudtrail_log_retention_days
@@ -534,5 +533,269 @@ resource "aws_flow_log" "vpc" {
   tags = {
     Name = "${local.name_prefix}-flowlogs-vpc"
     Role = "network-telemetry"
+  }
+}
+
+# =========================================================
+# Phase 4 - Governance Controls and Monitoring
+# =========================================================
+
+data "aws_iam_policy_document" "config_assume_role" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["config.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "config" {
+  name               = "${local.name_prefix}-role-config"
+  assume_role_policy = data.aws_iam_policy_document.config_assume_role.json
+
+  tags = {
+    Name = "${local.name_prefix}-role-config"
+    Role = "config"
+  }
+}
+
+resource "aws_iam_role_policy_attachment" "config_managed_policy" {
+  role       = aws_iam_role.config.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
+}
+
+data "aws_iam_policy_document" "config_bucket_policy" {
+  statement {
+    sid    = "AWSConfigBucketPermissionsCheck"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["config.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:GetBucketAcl",
+      "s3:ListBucket"
+    ]
+
+    resources = [
+      aws_s3_bucket.audit_logs.arn
+    ]
+  }
+
+  statement {
+    sid    = "AWSConfigBucketDelivery"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["config.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:PutObject"
+    ]
+
+    resources = [
+      "${aws_s3_bucket.audit_logs.arn}/AWSLogs/${data.aws_caller_identity.current.account_id}/Config/*"
+    ]
+
+    condition {
+      test     = "StringEquals"
+      variable = "s3:x-amz-acl"
+      values   = ["bucket-owner-full-control"]
+    }
+  }
+}
+
+data "aws_iam_policy_document" "merged_audit_bucket_policy" {
+  source_policy_documents = [
+    data.aws_iam_policy_document.cloudtrail_bucket_policy.json,
+    data.aws_iam_policy_document.config_bucket_policy.json
+  ]
+}
+
+resource "aws_s3_bucket_policy" "audit_logs" {
+  bucket = aws_s3_bucket.audit_logs.id
+  policy = data.aws_iam_policy_document.merged_audit_bucket_policy.json
+}
+
+resource "aws_config_configuration_recorder" "main" {
+  name     = "aegis-lz-aws-dev-config-recorder"
+  role_arn = "arn:aws:iam::151567229153:role/aegis-lz-aws-dev-aws-config-role"
+
+  recording_group {
+    all_supported                 = true
+    include_global_resource_types = true
+  }
+
+  depends_on = [
+    aws_iam_role_policy_attachment.config_managed_policy
+  ]
+}
+
+resource "aws_config_delivery_channel" "main" {
+  name           = "aegis-lz-aws-dev-config-delivery-channel"
+  s3_bucket_name = "aegis-lz-aws-dev-151567229153-config-logs"
+
+  snapshot_delivery_properties {
+    delivery_frequency = var.config_snapshot_delivery_frequency
+  }
+
+  depends_on = [
+    aws_config_configuration_recorder.main
+  ]
+}
+
+resource "aws_config_configuration_recorder_status" "main" {
+  name       = aws_config_configuration_recorder.main.name
+  is_enabled = true
+
+  depends_on = [
+    aws_config_delivery_channel.main
+  ]
+}
+
+resource "aws_cloudwatch_dashboard" "foundation" {
+  count = var.enable_monitoring_dashboard ? 1 : 0
+
+  dashboard_name = "${local.name_prefix}-foundation-overview"
+
+  dashboard_body = jsonencode({
+    widgets = [
+      {
+        type   = "metric",
+        x      = 0,
+        y      = 0,
+        width  = 12,
+        height = 6,
+        properties = {
+          title   = "NAT Gateway Throughput",
+          view    = "timeSeries",
+          stacked = false,
+          region  = var.aws_region,
+          metrics = [
+            ["AWS/NATGateway", "BytesInFromSource", "NatGatewayId", aws_nat_gateway.main.id],
+            [".", "BytesOutToDestination", ".", "."]
+          ]
+        }
+      },
+      {
+        type   = "metric",
+        x      = 12,
+        y      = 0,
+        width  = 12,
+        height = 6,
+        properties = {
+          title   = "NAT Gateway Error Signals",
+          view    = "timeSeries",
+          stacked = false,
+          region  = var.aws_region,
+          metrics = [
+            ["AWS/NATGateway", "ErrorPortAllocation", "NatGatewayId", aws_nat_gateway.main.id],
+            [".", "PacketsDropCount", ".", "."],
+            [".", "IdleTimeoutCount", ".", "."]
+          ]
+        }
+      },
+      {
+        type   = "metric",
+        x      = 0,
+        y      = 6,
+        width  = 12,
+        height = 6,
+        properties = {
+          title   = "CloudWatch Logs Ingestion",
+          view    = "timeSeries",
+          stacked = false,
+          region  = var.aws_region,
+          metrics = [
+            ["AWS/Logs", "IncomingLogEvents", "LogGroupName", aws_cloudwatch_log_group.cloudtrail.name],
+            [".", "IncomingLogEvents", "LogGroupName", aws_cloudwatch_log_group.flow_logs.name]
+          ]
+        }
+      },
+      {
+        type   = "text",
+        x      = 12,
+        y      = 6,
+        width  = 12,
+        height = 6,
+        properties = {
+          markdown = "# Foundation Monitoring Notes\n- CloudTrail enabled\n- VPC Flow Logs enabled\n- AWS Config recorder enabled\n- SNS wiring deferred to Phase 5"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_cloudwatch_metric_alarm" "nat_error_port_allocation" {
+  alarm_name          = "${local.name_prefix}-nat-error-port-allocation"
+  alarm_description   = "Detect NAT Gateway port allocation errors"
+  comparison_operator = "GreaterThanThreshold"
+  evaluation_periods  = 1
+  metric_name         = "ErrorPortAllocation"
+  namespace           = "AWS/NATGateway"
+  period              = 300
+  statistic           = "Sum"
+  threshold           = 0
+  treat_missing_data  = "notBreaching"
+
+  dimensions = {
+    NatGatewayId = aws_nat_gateway.main.id
+  }
+
+  tags = {
+    Name = "${local.name_prefix}-nat-error-port-allocation"
+    Role = "monitoring"
+  }
+}
+
+resource "aws_cloudwatch_metric_alarm" "nat_packets_drop" {
+  alarm_name          = "${local.name_prefix}-nat-packets-drop"
+  alarm_description   = "Detect packet drops on the NAT Gateway"
+  comparison_operator = "GreaterThanThreshold"
+  evaluation_periods  = 1
+  metric_name         = "PacketsDropCount"
+  namespace           = "AWS/NATGateway"
+  period              = 300
+  statistic           = "Sum"
+  threshold           = 0
+  treat_missing_data  = "notBreaching"
+
+  dimensions = {
+    NatGatewayId = aws_nat_gateway.main.id
+  }
+
+  tags = {
+    Name = "${local.name_prefix}-nat-packets-drop"
+    Role = "monitoring"
+  }
+}
+
+resource "aws_cloudwatch_metric_alarm" "config_recorder_visibility" {
+  alarm_name          = "${local.name_prefix}-config-delivery-failures-visibility"
+  alarm_description   = "Visibility alarm placeholder for AWS Config delivery status monitoring design"
+  comparison_operator = "GreaterThanThreshold"
+  evaluation_periods  = 1
+  metric_name         = "IncomingLogEvents"
+  namespace           = "AWS/Logs"
+  period              = 300
+  statistic           = "Sum"
+  threshold           = 0
+  treat_missing_data  = "notBreaching"
+
+  dimensions = {
+    LogGroupName = aws_cloudwatch_log_group.cloudtrail.name
+  }
+
+  tags = {
+    Name = "${local.name_prefix}-config-delivery-failures-visibility"
+    Role = "monitoring-design"
   }
 }

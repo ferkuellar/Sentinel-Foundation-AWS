@@ -92,3 +92,30 @@ output "flow_log_id" {
   value = aws_flow_log.vpc.id
 }
 
+output "config_recorder_name" {
+  value = aws_config_configuration_recorder.main.name
+}
+
+output "config_delivery_channel_name" {
+  value = aws_config_delivery_channel.main.name
+}
+
+output "config_role_arn" {
+  value = aws_iam_role.config.arn
+}
+
+output "config_recorder_enabled" {
+  value = aws_config_configuration_recorder_status.main.is_enabled
+}
+
+output "monitoring_dashboard_name" {
+  value = var.enable_monitoring_dashboard ? aws_cloudwatch_dashboard.foundation[0].dashboard_name : null
+}
+
+output "nat_error_alarm_name" {
+  value = aws_cloudwatch_metric_alarm.nat_error_port_allocation.alarm_name
+}
+
+output "nat_packets_drop_alarm_name" {
+  value = aws_cloudwatch_metric_alarm.nat_packets_drop.alarm_name
+}

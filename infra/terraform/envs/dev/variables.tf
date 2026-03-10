@@ -68,3 +68,15 @@ variable "flow_logs_retention_days" {
   type        = number
   default     = 14
 }
+
+variable "config_snapshot_delivery_frequency" {
+  description = "AWS Config snapshot delivery frequency"
+  type        = string
+  default     = "TwentyFour_Hours"
+}
+
+variable "enable_monitoring_dashboard" {
+  description = "Whether to create a CloudWatch dashboard"
+  type        = bool
+  default     = true
+}

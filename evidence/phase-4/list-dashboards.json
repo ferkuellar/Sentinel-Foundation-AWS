@@ -1,0 +1,10 @@
+{
+    "DashboardEntries": [
+        {
+            "DashboardName": "nbf-sentinel-dev-foundation-overview",
+            "DashboardArn": "arn:aws:cloudwatch::151567229153:dashboard/nbf-sentinel-dev-foundation-overview",
+            "LastModified": "2026-03-10T01:58:03+00:00",
+            "Size": 1208
+        }
+    ]
+}

@@ -1,0 +1,452 @@
+[0m[1mdata.aws_iam_policy_document.config_assume_role: Reading...[0m[0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mdata.aws_availability_zones.available: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_assume_role: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_assume_role: Reading...[0m[0m
+[0m[1maws_eip.nat: Refreshing state... [id=eipalloc-063c40f1c2849e71c][0m
+[0m[1maws_vpc.main: Refreshing state... [id=vpc-041a277d11b81fc73][0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_assume_role: Read complete after 0s [id=2717921857][0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_assume_role: Read complete after 0s [id=1399789601][0m
+[0m[1mdata.aws_iam_policy_document.config_assume_role: Read complete after 0s [id=607352202][0m
+[0m[1maws_iam_role.cloudtrail_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-cloudtrail-cw][0m
+[0m[1maws_iam_role.flow_logs: Refreshing state... [id=nbf-sentinel-dev-role-flowlogs][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 0s [id=151567229153][0m
+[0m[1mdata.aws_iam_policy_document.kms_key_policy: Reading...[0m[0m
+[0m[1maws_s3_bucket.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1mdata.aws_iam_policy_document.kms_key_policy: Read complete after 0s [id=3934369820][0m
+[0m[1maws_kms_key.logs: Refreshing state... [id=f90c9566-cb3b-4ef3-aa77-42770ca2250c][0m
+[0m[1mdata.aws_availability_zones.available: Read complete after 0s [id=us-east-1][0m
+[0m[1maws_kms_alias.logs: Refreshing state... [id=alias/nbf-sentinel-dev-logs][0m
+[0m[1maws_cloudwatch_log_group.cloudtrail: Refreshing state... [id=/aws/cloudtrail/nbf-sentinel-dev][0m
+[0m[1maws_cloudwatch_log_group.flow_logs: Refreshing state... [id=/aws/vpc/flowlogs/nbf-sentinel-dev][0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_to_cloudwatch: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_to_cloudwatch: Read complete after 0s [id=1465543951][0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_to_cloudwatch: Reading...[0m[0m
+[0m[1maws_iam_role_policy.flow_logs_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-flowlogs:nbf-sentinel-dev-policy-flowlogs][0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_to_cloudwatch: Read complete after 0s [id=3617006135][0m
+[0m[1maws_iam_role_policy.cloudtrail_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-cloudtrail-cw:nbf-sentinel-dev-policy-cloudtrail-cw][0m
+[0m[1maws_subnet.public_b: Refreshing state... [id=subnet-02fe44697a8fa2e57][0m
+[0m[1maws_subnet.private_a: Refreshing state... [id=subnet-0452c2f12e977d7a2][0m
+[0m[1maws_route_table.private: Refreshing state... [id=rtb-0a58155eb618d2f4d][0m
+[0m[1maws_route_table.public: Refreshing state... [id=rtb-06f0d405016b13b81][0m
+[0m[1maws_internet_gateway.main: Refreshing state... [id=igw-0328a474805998c23][0m
+[0m[1maws_subnet.private_b: Refreshing state... [id=subnet-0f6a095e909bde55b][0m
+[0m[1maws_flow_log.vpc: Refreshing state... [id=fl-04d3c391c1ed7d9ba][0m
+[0m[1maws_security_group.bastion: Refreshing state... [id=sg-09fde64609fd14b9d][0m
+[0m[1maws_security_group.alb_or_web: Refreshing state... [id=sg-05894e0a7b7293052][0m
+[0m[1maws_subnet.public_a: Refreshing state... [id=subnet-0b0958b45074309d1][0m
+[0m[1maws_route_table_association.public_b: Refreshing state... [id=rtbassoc-05852a68dc9ee83b2][0m
+[0m[1maws_route.public_internet_access: Refreshing state... [id=r-rtb-06f0d405016b13b811080289494][0m
+[0m[1maws_s3_bucket_public_access_block.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1maws_s3_bucket_versioning.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1mdata.aws_iam_policy_document.config_bucket_policy: Reading...[0m[0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1mdata.aws_iam_policy_document.config_bucket_policy: Read complete after 0s [id=4116150093][0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_bucket_policy: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_bucket_policy: Read complete after 0s [id=604222953][0m
+[0m[1mdata.aws_iam_policy_document.merged_audit_bucket_policy: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.merged_audit_bucket_policy: Read complete after 0s [id=2628665009][0m
+[0m[1maws_s3_bucket_policy.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1maws_route_table_association.private_a: Refreshing state... [id=rtbassoc-0910b4da26dbda192][0m
+[0m[1maws_route_table_association.private_b: Refreshing state... [id=rtbassoc-074e6e4c2eaf65826][0m
+[0m[1maws_security_group.private_workload: Refreshing state... [id=sg-01642c510135a5c48][0m
+[0m[1maws_route_table_association.public_a: Refreshing state... [id=rtbassoc-09b79b90f8857d6ec][0m
+[0m[1maws_nat_gateway.main: Refreshing state... [id=nat-03e5d9f19b93dd913][0m
+[0m[1maws_route.private_nat_egress: Refreshing state... [id=r-rtb-0a58155eb618d2f4d1080289494][0m
+[0m[1maws_cloudtrail.main: Refreshing state... [id=arn:aws:cloudtrail:us-east-1:151567229153:trail/nbf-sentinel-dev-trail][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [33m~[0m update in-place[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_cloudwatch_dashboard.foundation[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_dashboard" "foundation" {
+      [32m+[0m[0m dashboard_arn  = (known after apply)
+      [32m+[0m[0m dashboard_body = jsonencode(
+            {
+              [32m+[0m[0m widgets = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m height     = 6
+                      [32m+[0m[0m properties = {
+                          [32m+[0m[0m metrics = [
+                              [32m+[0m[0m [
+                                  [32m+[0m[0m "AWS/NATGateway",
+                                  [32m+[0m[0m "BytesInFromSource",
+                                  [32m+[0m[0m "NatGatewayId",
+                                  [32m+[0m[0m "nat-03e5d9f19b93dd913",
+                                ],
+                              [32m+[0m[0m [
+                                  [32m+[0m[0m ".",
+                                  [32m+[0m[0m "BytesOutToDestination",
+                                  [32m+[0m[0m ".",
+                                  [32m+[0m[0m ".",
+                                ],
+                            ]
+                          [32m+[0m[0m region  = "us-east-1"
+                          [32m+[0m[0m stacked = false
+                          [32m+[0m[0m title   = "NAT Gateway Throughput"
+                          [32m+[0m[0m view    = "timeSeries"
+                        }
+                      [32m+[0m[0m type       = "metric"
+                      [32m+[0m[0m width      = 12
+                      [32m+[0m[0m x          = 0
+                      [32m+[0m[0m y          = 0
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m height     = 6
+                      [32m+[0m[0m properties = {
+                          [32m+[0m[0m metrics = [
+                              [32m+[0m[0m [
+                                  [32m+[0m[0m "AWS/NATGateway",
+                                  [32m+[0m[0m "ErrorPortAllocation",
+                                  [32m+[0m[0m "NatGatewayId",
+                                  [32m+[0m[0m "nat-03e5d9f19b93dd913",
+                                ],
+                              [32m+[0m[0m [
+                                  [32m+[0m[0m ".",
+                                  [32m+[0m[0m "PacketsDropCount",
+                                  [32m+[0m[0m ".",
+                                  [32m+[0m[0m ".",
+                                ],
+                              [32m+[0m[0m [
+                                  [32m+[0m[0m ".",
+                                  [32m+[0m[0m "IdleTimeoutCount",
+                                  [32m+[0m[0m ".",
+                                  [32m+[0m[0m ".",
+                                ],
+                            ]
+                          [32m+[0m[0m region  = "us-east-1"
+                          [32m+[0m[0m stacked = false
+                          [32m+[0m[0m title   = "NAT Gateway Error Signals"
+                          [32m+[0m[0m view    = "timeSeries"
+                        }
+                      [32m+[0m[0m type       = "metric"
+                      [32m+[0m[0m width      = 12
+                      [32m+[0m[0m x          = 12
+                      [32m+[0m[0m y          = 0
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m height     = 6
+                      [32m+[0m[0m properties = {
+                          [32m+[0m[0m metrics = [
+                              [32m+[0m[0m [
+                                  [32m+[0m[0m "AWS/Logs",
+                                  [32m+[0m[0m "IncomingLogEvents",
+                                  [32m+[0m[0m "LogGroupName",
+                                  [32m+[0m[0m "/aws/cloudtrail/nbf-sentinel-dev",
+                                ],
+                              [32m+[0m[0m [
+                                  [32m+[0m[0m ".",
+                                  [32m+[0m[0m "IncomingLogEvents",
+                                  [32m+[0m[0m "LogGroupName",
+                                  [32m+[0m[0m "/aws/vpc/flowlogs/nbf-sentinel-dev",
+                                ],
+                            ]
+                          [32m+[0m[0m region  = "us-east-1"
+                          [32m+[0m[0m stacked = false
+                          [32m+[0m[0m title   = "CloudWatch Logs Ingestion"
+                          [32m+[0m[0m view    = "timeSeries"
+                        }
+                      [32m+[0m[0m type       = "metric"
+                      [32m+[0m[0m width      = 12
+                      [32m+[0m[0m x          = 0
+                      [32m+[0m[0m y          = 6
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m height     = 6
+                      [32m+[0m[0m properties = {
+                          [32m+[0m[0m markdown = <<-EOT
+                                # Foundation Monitoring Notes
+                                - CloudTrail enabled
+                                - VPC Flow Logs enabled
+                                - AWS Config recorder enabled
+                                - SNS wiring deferred to Phase 5
+                            EOT
+                        }
+                      [32m+[0m[0m type       = "text"
+                      [32m+[0m[0m width      = 12
+                      [32m+[0m[0m x          = 12
+                      [32m+[0m[0m y          = 6
+                    },
+                ]
+            }
+        )
+      [32m+[0m[0m dashboard_name = "nbf-sentinel-dev-foundation-overview"
+      [32m+[0m[0m id             = (known after apply)
+    }
+
+[1m  # aws_cloudwatch_metric_alarm.config_recorder_visibility[0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_metric_alarm" "config_recorder_visibility" {
+      [32m+[0m[0m actions_enabled                       = true
+      [32m+[0m[0m alarm_description                     = "Visibility alarm placeholder for AWS Config delivery status monitoring design"
+      [32m+[0m[0m alarm_name                            = "nbf-sentinel-dev-config-delivery-failures-visibility"
+      [32m+[0m[0m arn                                   = (known after apply)
+      [32m+[0m[0m comparison_operator                   = "GreaterThanThreshold"
+      [32m+[0m[0m dimensions                            = {
+          [32m+[0m[0m "LogGroupName" = "/aws/cloudtrail/nbf-sentinel-dev"
+        }
+      [32m+[0m[0m evaluate_low_sample_count_percentiles = (known after apply)
+      [32m+[0m[0m evaluation_periods                    = 1
+      [32m+[0m[0m id                                    = (known after apply)
+      [32m+[0m[0m metric_name                           = "IncomingLogEvents"
+      [32m+[0m[0m namespace                             = "AWS/Logs"
+      [32m+[0m[0m period                                = 300
+      [32m+[0m[0m statistic                             = "Sum"
+      [32m+[0m[0m tags                                  = {
+          [32m+[0m[0m "Name" = "nbf-sentinel-dev-config-delivery-failures-visibility"
+          [32m+[0m[0m "Role" = "monitoring-design"
+        }
+      [32m+[0m[0m tags_all                              = {
+          [32m+[0m[0m "BusinessUnit"       = "Northbound"
+          [32m+[0m[0m "CostCenter"         = "Platform"
+          [32m+[0m[0m "DataClassification" = "Internal"
+          [32m+[0m[0m "Environment"        = "dev"
+          [32m+[0m[0m "ManagedBy"          = "Terraform"
+          [32m+[0m[0m "Name"               = "nbf-sentinel-dev-config-delivery-failures-visibility"
+          [32m+[0m[0m "Owner"              = "Fernando"
+          [32m+[0m[0m "Project"            = "Sentinel-Foundation-AWS"
+          [32m+[0m[0m "Role"               = "monitoring-design"
+          [32m+[0m[0m "SecurityTier"       = "Foundation"
+        }
+      [32m+[0m[0m threshold                             = 0
+      [32m+[0m[0m treat_missing_data                    = "notBreaching"
+    }
+
+[1m  # aws_cloudwatch_metric_alarm.nat_error_port_allocation[0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_metric_alarm" "nat_error_port_allocation" {
+      [32m+[0m[0m actions_enabled                       = true
+      [32m+[0m[0m alarm_description                     = "Detect NAT Gateway port allocation errors"
+      [32m+[0m[0m alarm_name                            = "nbf-sentinel-dev-nat-error-port-allocation"
+      [32m+[0m[0m arn                                   = (known after apply)
+      [32m+[0m[0m comparison_operator                   = "GreaterThanThreshold"
+      [32m+[0m[0m dimensions                            = {
+          [32m+[0m[0m "NatGatewayId" = "nat-03e5d9f19b93dd913"
+        }
+      [32m+[0m[0m evaluate_low_sample_count_percentiles = (known after apply)
+      [32m+[0m[0m evaluation_periods                    = 1
+      [32m+[0m[0m id                                    = (known after apply)
+      [32m+[0m[0m metric_name                           = "ErrorPortAllocation"
+      [32m+[0m[0m namespace                             = "AWS/NATGateway"
+      [32m+[0m[0m period                                = 300
+      [32m+[0m[0m statistic                             = "Sum"
+      [32m+[0m[0m tags                                  = {
+          [32m+[0m[0m "Name" = "nbf-sentinel-dev-nat-error-port-allocation"
+          [32m+[0m[0m "Role" = "monitoring"
+        }
+      [32m+[0m[0m tags_all                              = {
+          [32m+[0m[0m "BusinessUnit"       = "Northbound"
+          [32m+[0m[0m "CostCenter"         = "Platform"
+          [32m+[0m[0m "DataClassification" = "Internal"
+          [32m+[0m[0m "Environment"        = "dev"
+          [32m+[0m[0m "ManagedBy"          = "Terraform"
+          [32m+[0m[0m "Name"               = "nbf-sentinel-dev-nat-error-port-allocation"
+          [32m+[0m[0m "Owner"              = "Fernando"
+          [32m+[0m[0m "Project"            = "Sentinel-Foundation-AWS"
+          [32m+[0m[0m "Role"               = "monitoring"
+          [32m+[0m[0m "SecurityTier"       = "Foundation"
+        }
+      [32m+[0m[0m threshold                             = 0
+      [32m+[0m[0m treat_missing_data                    = "notBreaching"
+    }
+
+[1m  # aws_cloudwatch_metric_alarm.nat_packets_drop[0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_metric_alarm" "nat_packets_drop" {
+      [32m+[0m[0m actions_enabled                       = true
+      [32m+[0m[0m alarm_description                     = "Detect packet drops on the NAT Gateway"
+      [32m+[0m[0m alarm_name                            = "nbf-sentinel-dev-nat-packets-drop"
+      [32m+[0m[0m arn                                   = (known after apply)
+      [32m+[0m[0m comparison_operator                   = "GreaterThanThreshold"
+      [32m+[0m[0m dimensions                            = {
+          [32m+[0m[0m "NatGatewayId" = "nat-03e5d9f19b93dd913"
+        }
+      [32m+[0m[0m evaluate_low_sample_count_percentiles = (known after apply)
+      [32m+[0m[0m evaluation_periods                    = 1
+      [32m+[0m[0m id                                    = (known after apply)
+      [32m+[0m[0m metric_name                           = "PacketsDropCount"
+      [32m+[0m[0m namespace                             = "AWS/NATGateway"
+      [32m+[0m[0m period                                = 300
+      [32m+[0m[0m statistic                             = "Sum"
+      [32m+[0m[0m tags                                  = {
+          [32m+[0m[0m "Name" = "nbf-sentinel-dev-nat-packets-drop"
+          [32m+[0m[0m "Role" = "monitoring"
+        }
+      [32m+[0m[0m tags_all                              = {
+          [32m+[0m[0m "BusinessUnit"       = "Northbound"
+          [32m+[0m[0m "CostCenter"         = "Platform"
+          [32m+[0m[0m "DataClassification" = "Internal"
+          [32m+[0m[0m "Environment"        = "dev"
+          [32m+[0m[0m "ManagedBy"          = "Terraform"
+          [32m+[0m[0m "Name"               = "nbf-sentinel-dev-nat-packets-drop"
+          [32m+[0m[0m "Owner"              = "Fernando"
+          [32m+[0m[0m "Project"            = "Sentinel-Foundation-AWS"
+          [32m+[0m[0m "Role"               = "monitoring"
+          [32m+[0m[0m "SecurityTier"       = "Foundation"
+        }
+      [32m+[0m[0m threshold                             = 0
+      [32m+[0m[0m treat_missing_data                    = "notBreaching"
+    }
+
+[1m  # aws_config_configuration_recorder.main[0m will be created
+[0m  [32m+[0m[0m resource "aws_config_configuration_recorder" "main" {
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m name     = "nbf-sentinel-dev-config-recorder"
+      [32m+[0m[0m role_arn = (known after apply)
+
+      [32m+[0m[0m recording_group {
+          [32m+[0m[0m all_supported                 = true
+          [32m+[0m[0m include_global_resource_types = true
+
+          [32m+[0m[0m exclusion_by_resource_types (known after apply)
+
+          [32m+[0m[0m recording_strategy (known after apply)
+        }
+
+      [32m+[0m[0m recording_mode (known after apply)
+    }
+
+[1m  # aws_config_configuration_recorder_status.main[0m will be created
+[0m  [32m+[0m[0m resource "aws_config_configuration_recorder_status" "main" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m is_enabled = true
+      [32m+[0m[0m name       = "nbf-sentinel-dev-config-recorder"
+    }
+
+[1m  # aws_config_delivery_channel.main[0m will be created
+[0m  [32m+[0m[0m resource "aws_config_delivery_channel" "main" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m name           = "nbf-sentinel-dev-config-delivery"
+      [32m+[0m[0m s3_bucket_name = "nbf-sentinel-dev-audit-151567229153"
+      [32m+[0m[0m s3_key_prefix  = "config"
+
+      [32m+[0m[0m snapshot_delivery_properties {
+          [32m+[0m[0m delivery_frequency = "TwentyFour_Hours"
+        }
+    }
+
+[1m  # aws_iam_role.config[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role" "config" {
+      [32m+[0m[0m arn                   = (known after apply)
+      [32m+[0m[0m assume_role_policy    = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = "sts:AssumeRole"
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "config.amazonaws.com"
+                        }
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m create_date           = (known after apply)
+      [32m+[0m[0m force_detach_policies = false
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m managed_policy_arns   = (known after apply)
+      [32m+[0m[0m max_session_duration  = 3600
+      [32m+[0m[0m name                  = "nbf-sentinel-dev-role-config"
+      [32m+[0m[0m name_prefix           = (known after apply)
+      [32m+[0m[0m path                  = "/"
+      [32m+[0m[0m tags                  = {
+          [32m+[0m[0m "Name" = "nbf-sentinel-dev-role-config"
+          [32m+[0m[0m "Role" = "config"
+        }
+      [32m+[0m[0m tags_all              = {
+          [32m+[0m[0m "BusinessUnit"       = "Northbound"
+          [32m+[0m[0m "CostCenter"         = "Platform"
+          [32m+[0m[0m "DataClassification" = "Internal"
+          [32m+[0m[0m "Environment"        = "dev"
+          [32m+[0m[0m "ManagedBy"          = "Terraform"
+          [32m+[0m[0m "Name"               = "nbf-sentinel-dev-role-config"
+          [32m+[0m[0m "Owner"              = "Fernando"
+          [32m+[0m[0m "Project"            = "Sentinel-Foundation-AWS"
+          [32m+[0m[0m "Role"               = "config"
+          [32m+[0m[0m "SecurityTier"       = "Foundation"
+        }
+      [32m+[0m[0m unique_id             = (known after apply)
+
+      [32m+[0m[0m inline_policy (known after apply)
+    }
+
+[1m  # aws_iam_role_policy_attachment.config_managed_policy[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "config_managed_policy" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
+      [32m+[0m[0m role       = "nbf-sentinel-dev-role-config"
+    }
+
+[1m  # aws_s3_bucket_policy.audit_logs[0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_s3_bucket_policy" "audit_logs" {
+        id     = "nbf-sentinel-dev-audit-151567229153"
+      [33m~[0m[0m policy = jsonencode(
+          [33m~[0m[0m {
+              [33m~[0m[0m Statement = [
+                    [90m# (1 unchanged element hidden)[0m[0m
+                    {
+                        Action    = "s3:PutObject"
+                        Condition = {
+                            StringEquals = {
+                                "s3:x-amz-acl" = "bucket-owner-full-control"
+                            }
+                        }
+                        Effect    = "Allow"
+                        Principal = {
+                            Service = "cloudtrail.amazonaws.com"
+                        }
+                        Resource  = "arn:aws:s3:::nbf-sentinel-dev-audit-151567229153/AWSLogs/151567229153/*"
+                        Sid       = "AWSCloudTrailWrite"
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = [
+                          [32m+[0m[0m "s3:ListBucket",
+                          [32m+[0m[0m "s3:GetBucketAcl",
+                        ]
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "config.amazonaws.com"
+                        }
+                      [32m+[0m[0m Resource  = "arn:aws:s3:::nbf-sentinel-dev-audit-151567229153"
+                      [32m+[0m[0m Sid       = "AWSConfigBucketPermissionsCheck"
+                    },
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = "s3:PutObject"
+                      [32m+[0m[0m Condition = {
+                          [32m+[0m[0m StringEquals = {
+                              [32m+[0m[0m "s3:x-amz-acl" = "bucket-owner-full-control"
+                            }
+                        }
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "config.amazonaws.com"
+                        }
+                      [32m+[0m[0m Resource  = "arn:aws:s3:::nbf-sentinel-dev-audit-151567229153/AWSLogs/151567229153/Config/*"
+                      [32m+[0m[0m Sid       = "AWSConfigBucketDelivery"
+                    },
+                ]
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            }
+        )
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m9 to add, 1 to change, 0 to destroy.
+
+Changes to Outputs:
+  [32m+[0m[0m config_delivery_channel_name       = "nbf-sentinel-dev-config-delivery"
+  [32m+[0m[0m config_recorder_enabled            = true
+  [32m+[0m[0m config_recorder_name               = "nbf-sentinel-dev-config-recorder"
+  [32m+[0m[0m config_role_arn                    = (known after apply)
+  [32m+[0m[0m monitoring_dashboard_name          = "nbf-sentinel-dev-foundation-overview"
+  [32m+[0m[0m nat_error_alarm_name               = "nbf-sentinel-dev-nat-error-port-allocation"
+  [32m+[0m[0m nat_packets_drop_alarm_name        = "nbf-sentinel-dev-nat-packets-drop"
+[90m
+ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ[0m
+
+Saved the plan to: tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "tfplan"
