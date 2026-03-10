@@ -56,3 +56,15 @@ variable "admin_cidr" {
   description = "Trusted admin IP in /32 format for bastion SSH access"
   type        = string
 }
+
+variable "cloudtrail_log_retention_days" {
+  description = "Retention in days for CloudTrail CloudWatch log group"
+  type        = number
+  default     = 30
+}
+
+variable "flow_logs_retention_days" {
+  description = "Retention in days for VPC Flow Logs CloudWatch log group"
+  type        = number
+  default     = 14
+}

@@ -59,3 +59,36 @@ output "web_security_group_id" {
 output "availability_zones_used" {
   value = [local.az_a, local.az_b]
 }
+
+output "kms_key_arn" {
+  value = aws_kms_key.logs.arn
+}
+
+output "kms_key_alias" {
+  value = aws_kms_alias.logs.name
+}
+
+output "audit_logs_bucket_name" {
+  value = aws_s3_bucket.audit_logs.id
+}
+
+output "cloudtrail_name" {
+  value = aws_cloudtrail.main.name
+}
+
+output "cloudtrail_arn" {
+  value = aws_cloudtrail.main.arn
+}
+
+output "cloudtrail_log_group_name" {
+  value = aws_cloudwatch_log_group.cloudtrail.name
+}
+
+output "flow_logs_log_group_name" {
+  value = aws_cloudwatch_log_group.flow_logs.name
+}
+
+output "flow_log_id" {
+  value = aws_flow_log.vpc.id
+}
+

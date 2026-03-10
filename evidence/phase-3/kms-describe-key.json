@@ -1,0 +1,21 @@
+{
+    "KeyMetadata": {
+        "AWSAccountId": "151567229153",
+        "KeyId": "f90c9566-cb3b-4ef3-aa77-42770ca2250c",
+        "Arn": "arn:aws:kms:us-east-1:151567229153:key/f90c9566-cb3b-4ef3-aa77-42770ca2250c",
+        "CreationDate": "2026-03-09T19:40:09.595000-06:00",
+        "Enabled": true,
+        "Description": "Customer managed KMS key for Sentinel foundation logging resources",
+        "KeyUsage": "ENCRYPT_DECRYPT",
+        "KeyState": "Enabled",
+        "Origin": "AWS_KMS",
+        "KeyManager": "CUSTOMER",
+        "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
+        "KeySpec": "SYMMETRIC_DEFAULT",
+        "EncryptionAlgorithms": [
+            "SYMMETRIC_DEFAULT"
+        ],
+        "MultiRegion": false,
+        "CurrentKeyMaterialId": "355818a91e37200f48954749b73e16175b983f779317e6c007c506c0c092847f"
+    }
+}

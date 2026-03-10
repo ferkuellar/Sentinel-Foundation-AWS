@@ -1,0 +1,44 @@
+{
+    "FlowLogs": [
+        {
+            "CreationTime": "2026-03-09T00:36:33.040000+00:00",
+            "DeliverLogsPermissionArn": "arn:aws:iam::151567229153:role/aegis-lz-aws-dev-vpc-flowlogs-role",
+            "DeliverLogsStatus": "SUCCESS",
+            "FlowLogId": "fl-05d970d6dd7bb3558",
+            "FlowLogStatus": "ACTIVE",
+            "LogGroupName": "/aws/vpc/flowlogs/aegis-lz-aws-dev",
+            "ResourceId": "vpc-0fb2af4eafd34adb2",
+            "TrafficType": "ALL",
+            "LogDestinationType": "cloud-watch-logs",
+            "LogDestination": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/vpc/flowlogs/aegis-lz-aws-dev",
+            "LogFormat": "${version} ${account-id} ${interface-id} ${srcaddr} ${dstaddr} ${srcport} ${dstport} ${protocol} ${packets} ${bytes} ${start} ${end} ${action} ${log-status}",
+            "Tags": [
+                {
+                    "Key": "Project",
+                    "Value": "aegis-lz-aws"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "Tier",
+                    "Value": "logging"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "aegis-lz-aws-dev-vpc-flowlogs"
+                }
+            ],
+            "MaxAggregationInterval": 600
+        }
+    ]
+}

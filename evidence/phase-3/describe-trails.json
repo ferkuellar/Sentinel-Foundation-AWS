@@ -1,0 +1,19 @@
+{
+    "trailList": [
+        {
+            "Name": "aegis-lz-aws-dev-trail",
+            "S3BucketName": "aegis-lz-aws-dev-151567229153-cloudtrail-logs",
+            "IncludeGlobalServiceEvents": true,
+            "IsMultiRegionTrail": true,
+            "HomeRegion": "us-east-1",
+            "TrailARN": "arn:aws:cloudtrail:us-east-1:151567229153:trail/aegis-lz-aws-dev-trail",
+            "LogFileValidationEnabled": true,
+            "CloudWatchLogsLogGroupArn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/cloudtrail/aegis-lz-aws-dev:*",
+            "CloudWatchLogsRoleArn": "arn:aws:iam::151567229153:role/aegis-lz-aws-dev-cloudtrail-to-cw-role",
+            "KmsKeyId": "arn:aws:kms:us-east-1:151567229153:key/b98f542d-6be7-469a-b4dd-b1598510f940",
+            "HasCustomEventSelectors": false,
+            "HasInsightSelectors": false,
+            "IsOrganizationTrail": false
+        }
+    ]
+}

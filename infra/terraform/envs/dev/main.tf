@@ -232,3 +232,307 @@ resource "aws_security_group" "alb_or_web" {
     Role = "web"
   }
 }
+
+locals {
+  trail_bucket_name = lower(replace("${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}", "_", "-"))
+}
+
+data "aws_caller_identity" "current" {}
+
+data "aws_iam_policy_document" "kms_key_policy" {
+  statement {
+    sid    = "EnableRootPermissions"
+    effect = "Allow"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"]
+    }
+
+    actions   = ["kms:*"]
+    resources = ["*"]
+  }
+
+  statement {
+    sid    = "AllowCloudTrailUseOfTheKey"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudtrail.amazonaws.com"]
+    }
+
+    actions = [
+      "kms:GenerateDataKey*",
+      "kms:DescribeKey",
+      "kms:Encrypt",
+      "kms:Decrypt",
+      "kms:ReEncrypt*"
+    ]
+
+    resources = ["*"]
+  }
+
+  statement {
+    sid    = "AllowCloudWatchLogsUseOfTheKey"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["logs.${var.aws_region}.amazonaws.com"]
+    }
+
+    actions = [
+      "kms:Encrypt",
+      "kms:Decrypt",
+      "kms:ReEncrypt*",
+      "kms:GenerateDataKey*",
+      "kms:DescribeKey"
+    ]
+
+    resources = ["*"]
+  }
+}
+
+resource "aws_kms_key" "logs" {
+  description             = "Customer managed KMS key for Sentinel foundation logging resources"
+  deletion_window_in_days = 7
+  enable_key_rotation     = true
+  policy                  = data.aws_iam_policy_document.kms_key_policy.json
+
+  tags = {
+    Name = "${local.name_prefix}-kms-logs"
+    Role = "logging-encryption"
+  }
+}
+
+resource "aws_kms_alias" "logs" {
+  name          = "alias/${local.name_prefix}-logs"
+  target_key_id = aws_kms_key.logs.key_id
+}
+
+resource "aws_s3_bucket" "audit_logs" {
+  bucket = local.trail_bucket_name
+
+  tags = {
+    Name = "${local.name_prefix}-s3-audit-logs"
+    Role = "audit-logs"
+  }
+}
+
+resource "aws_s3_bucket_versioning" "audit_logs" {
+  bucket = aws_s3_bucket.audit_logs.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "audit_logs" {
+  bucket = aws_s3_bucket.audit_logs.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.logs.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "audit_logs" {
+  bucket = aws_s3_bucket.audit_logs.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+data "aws_iam_policy_document" "cloudtrail_bucket_policy" {
+  statement {
+    sid    = "AWSCloudTrailAclCheck"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudtrail.amazonaws.com"]
+    }
+
+    actions   = ["s3:GetBucketAcl"]
+    resources = [aws_s3_bucket.audit_logs.arn]
+  }
+
+  statement {
+    sid    = "AWSCloudTrailWrite"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudtrail.amazonaws.com"]
+    }
+
+    actions = ["s3:PutObject"]
+
+    resources = [
+      "${aws_s3_bucket.audit_logs.arn}/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
+    ]
+
+    condition {
+      test     = "StringEquals"
+      variable = "s3:x-amz-acl"
+      values   = ["bucket-owner-full-control"]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "audit_logs" {
+  bucket = aws_s3_bucket.audit_logs.id
+  policy = data.aws_iam_policy_document.cloudtrail_bucket_policy.json
+}
+
+resource "aws_cloudwatch_log_group" "cloudtrail" {
+  name              = "/aws/cloudtrail/${local.name_prefix}"
+  retention_in_days = var.cloudtrail_log_retention_days
+  kms_key_id        = aws_kms_key.logs.arn
+
+  tags = {
+    Name = "${local.name_prefix}-cw-cloudtrail"
+    Role = "cloudtrail"
+  }
+}
+
+resource "aws_cloudwatch_log_group" "flow_logs" {
+  name              = "/aws/vpc/flowlogs/${local.name_prefix}"
+  retention_in_days = var.flow_logs_retention_days
+  kms_key_id        = aws_kms_key.logs.arn
+
+  tags = {
+    Name = "${local.name_prefix}-cw-flowlogs"
+    Role = "flow-logs"
+  }
+}
+
+data "aws_iam_policy_document" "cloudtrail_assume_role" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudtrail.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "cloudtrail_to_cloudwatch" {
+  name               = "${local.name_prefix}-role-cloudtrail-cw"
+  assume_role_policy = data.aws_iam_policy_document.cloudtrail_assume_role.json
+
+  tags = {
+    Name = "${local.name_prefix}-role-cloudtrail-cw"
+  }
+}
+
+data "aws_iam_policy_document" "cloudtrail_to_cloudwatch" {
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "logs:CreateLogStream",
+      "logs:PutLogEvents"
+    ]
+
+    resources = [
+      "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
+    ]
+  }
+}
+
+resource "aws_iam_role_policy" "cloudtrail_to_cloudwatch" {
+  name   = "${local.name_prefix}-policy-cloudtrail-cw"
+  role   = aws_iam_role.cloudtrail_to_cloudwatch.id
+  policy = data.aws_iam_policy_document.cloudtrail_to_cloudwatch.json
+}
+
+resource "aws_cloudtrail" "main" {
+  name                          = "${local.name_prefix}-trail"
+  s3_bucket_name                = aws_s3_bucket.audit_logs.id
+  kms_key_id                    = aws_kms_key.logs.arn
+  is_multi_region_trail         = true
+  include_global_service_events = true
+  enable_log_file_validation    = true
+
+  cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
+  cloud_watch_logs_role_arn  = aws_iam_role.cloudtrail_to_cloudwatch.arn
+
+  depends_on = [
+    aws_s3_bucket_policy.audit_logs,
+    aws_iam_role_policy.cloudtrail_to_cloudwatch
+  ]
+
+  tags = {
+    Name = "${local.name_prefix}-trail"
+    Role = "audit"
+  }
+}
+
+data "aws_iam_policy_document" "flow_logs_assume_role" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["vpc-flow-logs.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "flow_logs" {
+  name               = "${local.name_prefix}-role-flowlogs"
+  assume_role_policy = data.aws_iam_policy_document.flow_logs_assume_role.json
+
+  tags = {
+    Name = "${local.name_prefix}-role-flowlogs"
+  }
+}
+
+data "aws_iam_policy_document" "flow_logs_to_cloudwatch" {
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:DescribeLogGroups",
+      "logs:DescribeLogStreams",
+      "logs:PutLogEvents"
+    ]
+
+    resources = [
+      aws_cloudwatch_log_group.flow_logs.arn,
+      "${aws_cloudwatch_log_group.flow_logs.arn}:*"
+    ]
+  }
+}
+
+resource "aws_iam_role_policy" "flow_logs_to_cloudwatch" {
+  name   = "${local.name_prefix}-policy-flowlogs"
+  role   = aws_iam_role.flow_logs.id
+  policy = data.aws_iam_policy_document.flow_logs_to_cloudwatch.json
+}
+
+resource "aws_flow_log" "vpc" {
+  iam_role_arn         = aws_iam_role.flow_logs.arn
+  log_destination      = aws_cloudwatch_log_group.flow_logs.arn
+  log_destination_type = "cloud-watch-logs"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.main.id
+
+  tags = {
+    Name = "${local.name_prefix}-flowlogs-vpc"
+    Role = "network-telemetry"
+  }
+}

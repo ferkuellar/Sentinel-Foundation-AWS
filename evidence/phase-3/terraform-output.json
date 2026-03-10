@@ -1,0 +1,99 @@
+{
+  "availability_zones_used": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "us-east-1a",
+      "us-east-1b"
+    ]
+  },
+  "aws_region": {
+    "sensitive": false,
+    "type": "string",
+    "value": "us-east-1"
+  },
+  "bastion_security_group_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sg-09fde64609fd14b9d"
+  },
+  "internet_gateway_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "igw-0328a474805998c23"
+  },
+  "nat_gateway_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nat-03e5d9f19b93dd913"
+  },
+  "private_route_table_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "rtb-0a58155eb618d2f4d"
+  },
+  "private_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0452c2f12e977d7a2",
+      "subnet-0f6a095e909bde55b"
+    ]
+  },
+  "private_workload_security_group_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sg-01642c510135a5c48"
+  },
+  "project_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "Sentinel-Foundation-AWS"
+  },
+  "public_route_table_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "rtb-06f0d405016b13b81"
+  },
+  "public_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0b0958b45074309d1",
+      "subnet-02fe44697a8fa2e57"
+    ]
+  },
+  "vpc_cidr": {
+    "sensitive": false,
+    "type": "string",
+    "value": "10.20.0.0/16"
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-041a277d11b81fc73"
+  },
+  "web_security_group_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sg-05894e0a7b7293052"
+  }
+}

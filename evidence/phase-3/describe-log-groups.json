@@ -1,0 +1,65 @@
+{
+    "logGroups": [
+        {
+            "logGroupName": "/aws/cloudtrail/aegis-lz-aws-dev",
+            "creationTime": 1773016592173,
+            "retentionInDays": 30,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/cloudtrail/aegis-lz-aws-dev:*",
+            "storedBytes": 0,
+            "kmsKeyId": "arn:aws:kms:us-east-1:151567229153:key/b98f542d-6be7-469a-b4dd-b1598510f940",
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/cloudtrail/aegis-lz-aws-dev"
+        },
+        {
+            "logGroupName": "/aws/lambda/FinGuardIngestFunction",
+            "creationTime": 1764124286115,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/FinGuardIngestFunction:*",
+            "storedBytes": 5985,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/FinGuardIngestFunction"
+        },
+        {
+            "logGroupName": "/aws/lambda/alsupernova-cart",
+            "creationTime": 1771617090031,
+            "retentionInDays": 7,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/alsupernova-cart:*",
+            "storedBytes": 0,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/alsupernova-cart"
+        },
+        {
+            "logGroupName": "/aws/lambda/alsupernova-catalog",
+            "creationTime": 1771616959589,
+            "retentionInDays": 7,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/alsupernova-catalog:*",
+            "storedBytes": 0,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/alsupernova-catalog"
+        },
+        {
+            "logGroupName": "/aws/lambda/alsupernova-orders",
+            "creationTime": 1771617200872,
+            "retentionInDays": 7,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/alsupernova-orders:*",
+            "storedBytes": 0,
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/lambda/alsupernova-orders"
+        },
+        {
+            "logGroupName": "/aws/vpc/flowlogs/aegis-lz-aws-dev",
+            "creationTime": 1773016592154,
+            "retentionInDays": 30,
+            "metricFilterCount": 0,
+            "arn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/vpc/flowlogs/aegis-lz-aws-dev:*",
+            "storedBytes": 0,
+            "kmsKeyId": "arn:aws:kms:us-east-1:151567229153:key/b98f542d-6be7-469a-b4dd-b1598510f940",
+            "logGroupClass": "STANDARD",
+            "logGroupArn": "arn:aws:logs:us-east-1:151567229153:log-group:/aws/vpc/flowlogs/aegis-lz-aws-dev"
+        }
+    ]
+}
