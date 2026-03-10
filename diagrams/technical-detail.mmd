@@ -1,0 +1,55 @@
+flowchart LR
+    internet[Internet]
+
+    subgraph aws[AWS Account / Workloads Dev]
+        subgraph vpc[VPC 10.20.0.0/16]
+            igw[Internet Gateway]
+
+            subgraph pub1[Public Subnet A 10.20.1.0/24]
+                bastion[Bastion Pattern]
+                nat[NAT Gateway]
+            end
+
+            subgraph pub2[Public Subnet B 10.20.2.0/24]
+                web[Public Web / ALB Pattern]
+            end
+
+            subgraph priv1[Private Subnet A 10.20.11.0/24]
+                app1[Private Workload A]
+            end
+
+            subgraph priv2[Private Subnet B 10.20.12.0/24]
+                app2[Private Workload B]
+            end
+
+            rtpub[Public Route Table\n0.0.0.0/0 -> IGW]
+            rtpriv[Private Route Table\n0.0.0.0/0 -> NAT]
+
+            sgb[SG Bastion\nSSH from admin /32]
+            sgw[SG Web\n80/443 from Internet]
+            sgp[SG Private\nSSH only from Bastion SG]
+        end
+    end
+
+    internet --> igw
+    igw --> bastion
+    igw --> web
+    internet --> web
+
+    bastion --> app1
+    bastion --> app2
+
+    app1 --> nat
+    app2 --> nat
+    nat --> igw
+    igw --> internet
+
+    rtpub --> pub1
+    rtpub --> pub2
+    rtpriv --> priv1
+    rtpriv --> priv2
+
+    sgb --> bastion
+    sgw --> web
+    sgp --> app1
+    sgp --> app2

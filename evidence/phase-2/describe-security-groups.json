@@ -1,0 +1,259 @@
+{
+    "SecurityGroups": [
+        {
+            "GroupId": "sg-01642c510135a5c48",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "Allow all outbound traffic",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "nbf-sentinel-dev-sg-private-workload"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "Sentinel-Foundation-AWS"
+                },
+                {
+                    "Key": "SecurityTier",
+                    "Value": "Foundation"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "BusinessUnit",
+                    "Value": "Northbound"
+                },
+                {
+                    "Key": "CostCenter",
+                    "Value": "Platform"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                },
+                {
+                    "Key": "DataClassification",
+                    "Value": "Internal"
+                },
+                {
+                    "Key": "Role",
+                    "Value": "private-workload"
+                }
+            ],
+            "VpcId": "vpc-041a277d11b81fc73",
+            "SecurityGroupArn": "arn:aws:ec2:us-east-1:151567229153:security-group/sg-01642c510135a5c48",
+            "OwnerId": "151567229153",
+            "GroupName": "nbf-sentinel-dev-sg-private-workload",
+            "Description": "Private workload SG allowing SSH only from bastion SG",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 22,
+                    "ToPort": 22,
+                    "UserIdGroupPairs": [
+                        {
+                            "Description": "SSH from bastion security group",
+                            "UserId": "151567229153",
+                            "GroupId": "sg-09fde64609fd14b9d"
+                        }
+                    ],
+                    "IpRanges": [],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        },
+        {
+            "GroupId": "sg-09fde64609fd14b9d",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "Allow all outbound traffic",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                },
+                {
+                    "Key": "SecurityTier",
+                    "Value": "Foundation"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "Sentinel-Foundation-AWS"
+                },
+                {
+                    "Key": "BusinessUnit",
+                    "Value": "Northbound"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "nbf-sentinel-dev-sg-bastion"
+                },
+                {
+                    "Key": "CostCenter",
+                    "Value": "Platform"
+                },
+                {
+                    "Key": "DataClassification",
+                    "Value": "Internal"
+                },
+                {
+                    "Key": "Role",
+                    "Value": "bastion"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                }
+            ],
+            "VpcId": "vpc-041a277d11b81fc73",
+            "SecurityGroupArn": "arn:aws:ec2:us-east-1:151567229153:security-group/sg-09fde64609fd14b9d",
+            "OwnerId": "151567229153",
+            "GroupName": "nbf-sentinel-dev-sg-bastion",
+            "Description": "Bastion security group with SSH access restricted to trusted admin IP",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 22,
+                    "ToPort": 22,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "SSH from trusted admin IP",
+                            "CidrIp": "189.154.233.138/32"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        },
+        {
+            "GroupId": "sg-05894e0a7b7293052",
+            "IpPermissionsEgress": [
+                {
+                    "IpProtocol": "-1",
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "Allow all outbound traffic",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Role",
+                    "Value": "web"
+                },
+                {
+                    "Key": "SecurityTier",
+                    "Value": "Foundation"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "Sentinel-Foundation-AWS"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "DataClassification",
+                    "Value": "Internal"
+                },
+                {
+                    "Key": "CostCenter",
+                    "Value": "Platform"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "nbf-sentinel-dev-sg-web"
+                },
+                {
+                    "Key": "BusinessUnit",
+                    "Value": "Northbound"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                }
+            ],
+            "VpcId": "vpc-041a277d11b81fc73",
+            "SecurityGroupArn": "arn:aws:ec2:us-east-1:151567229153:security-group/sg-05894e0a7b7293052",
+            "OwnerId": "151567229153",
+            "GroupName": "nbf-sentinel-dev-sg-web",
+            "Description": "Example web tier SG allowing HTTP and HTTPS",
+            "IpPermissions": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 80,
+                    "ToPort": 80,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "HTTP from internet",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                },
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 443,
+                    "ToPort": 443,
+                    "UserIdGroupPairs": [],
+                    "IpRanges": [
+                        {
+                            "Description": "HTTPS from internet",
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ],
+                    "Ipv6Ranges": [],
+                    "PrefixListIds": []
+                }
+            ]
+        }
+    ]
+}

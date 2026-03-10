@@ -1,0 +1,52 @@
+{
+    "InternetGateways": [
+        {
+            "Attachments": [
+                {
+                    "State": "available",
+                    "VpcId": "vpc-041a277d11b81fc73"
+                }
+            ],
+            "InternetGatewayId": "igw-0328a474805998c23",
+            "OwnerId": "151567229153",
+            "Tags": [
+                {
+                    "Key": "SecurityTier",
+                    "Value": "Foundation"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                },
+                {
+                    "Key": "BusinessUnit",
+                    "Value": "Northbound"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "nbf-sentinel-dev-igw"
+                },
+                {
+                    "Key": "CostCenter",
+                    "Value": "Platform"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "DataClassification",
+                    "Value": "Internal"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "Sentinel-Foundation-AWS"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                }
+            ]
+        }
+    ]
+}

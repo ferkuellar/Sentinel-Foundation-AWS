@@ -1,12 +1,17 @@
 provider "aws" {
-  region = var.aws_region
+  region  = var.aws_region
+  profile = "sentinel"
 
   default_tags {
     tags = {
-      Project     = "Sentinel-Foundation-AWS"
-      Environment = var.environment
-      ManagedBy   = "Terraform"
-      Owner       = "Fernando"
+      Project            = var.project_name
+      Environment        = var.environment
+      Owner              = "Fernando"
+      ManagedBy          = "Terraform"
+      CostCenter         = "Platform"
+      DataClassification = "Internal"
+      SecurityTier       = "Foundation"
+      BusinessUnit       = "Northbound"
     }
   }
 }

@@ -1,0 +1,160 @@
+{
+    "RouteTables": [
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-0910b4da26dbda192",
+                    "RouteTableId": "rtb-0a58155eb618d2f4d",
+                    "SubnetId": "subnet-0452c2f12e977d7a2",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                },
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-074e6e4c2eaf65826",
+                    "RouteTableId": "rtb-0a58155eb618d2f4d",
+                    "SubnetId": "subnet-0f6a095e909bde55b",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-0a58155eb618d2f4d",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.20.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "NatGatewayId": "nat-03e5d9f19b93dd913",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                },
+                {
+                    "Key": "SecurityTier",
+                    "Value": "Foundation"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "Sentinel-Foundation-AWS"
+                },
+                {
+                    "Key": "BusinessUnit",
+                    "Value": "Northbound"
+                },
+                {
+                    "Key": "CostCenter",
+                    "Value": "Platform"
+                },
+                {
+                    "Key": "DataClassification",
+                    "Value": "Internal"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "nbf-sentinel-dev-rt-private"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                }
+            ],
+            "VpcId": "vpc-041a277d11b81fc73",
+            "OwnerId": "151567229153"
+        },
+        {
+            "Associations": [
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-05852a68dc9ee83b2",
+                    "RouteTableId": "rtb-06f0d405016b13b81",
+                    "SubnetId": "subnet-02fe44697a8fa2e57",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                },
+                {
+                    "Main": false,
+                    "RouteTableAssociationId": "rtbassoc-09b79b90f8857d6ec",
+                    "RouteTableId": "rtb-06f0d405016b13b81",
+                    "SubnetId": "subnet-0b0958b45074309d1",
+                    "AssociationState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "PropagatingVgws": [],
+            "RouteTableId": "rtb-06f0d405016b13b81",
+            "Routes": [
+                {
+                    "DestinationCidrBlock": "10.20.0.0/16",
+                    "GatewayId": "local",
+                    "Origin": "CreateRouteTable",
+                    "State": "active"
+                },
+                {
+                    "DestinationCidrBlock": "0.0.0.0/0",
+                    "GatewayId": "igw-0328a474805998c23",
+                    "Origin": "CreateRoute",
+                    "State": "active"
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "BusinessUnit",
+                    "Value": "Northbound"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "CostCenter",
+                    "Value": "Platform"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "Sentinel-Foundation-AWS"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                },
+                {
+                    "Key": "DataClassification",
+                    "Value": "Internal"
+                },
+                {
+                    "Key": "Name",
+                    "Value": "nbf-sentinel-dev-rt-public"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                },
+                {
+                    "Key": "SecurityTier",
+                    "Value": "Foundation"
+                }
+            ],
+            "VpcId": "vpc-041a277d11b81fc73",
+            "OwnerId": "151567229153"
+        }
+    ]
+}

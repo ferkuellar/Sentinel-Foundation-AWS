@@ -1,0 +1,63 @@
+{
+    "Vpcs": [
+        {
+            "OwnerId": "151567229153",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-07838f7c94da6c1e8",
+                    "CidrBlock": "10.20.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "nbf-sentinel-dev-vpc-core"
+                },
+                {
+                    "Key": "BusinessUnit",
+                    "Value": "Northbound"
+                },
+                {
+                    "Key": "ManagedBy",
+                    "Value": "Terraform"
+                },
+                {
+                    "Key": "SecurityTier",
+                    "Value": "Foundation"
+                },
+                {
+                    "Key": "Environment",
+                    "Value": "dev"
+                },
+                {
+                    "Key": "Owner",
+                    "Value": "Fernando"
+                },
+                {
+                    "Key": "DataClassification",
+                    "Value": "Internal"
+                },
+                {
+                    "Key": "CostCenter",
+                    "Value": "Platform"
+                },
+                {
+                    "Key": "Project",
+                    "Value": "Sentinel-Foundation-AWS"
+                }
+            ],
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "VpcId": "vpc-041a277d11b81fc73",
+            "State": "available",
+            "CidrBlock": "10.20.0.0/16",
+            "DhcpOptionsId": "dopt-06f197b147f78a903"
+        }
+    ]
+}

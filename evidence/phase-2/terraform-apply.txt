@@ -1,0 +1,28 @@
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+[0mavailability_zones_used = [
+  "us-east-1a",
+  "us-east-1b",
+]
+aws_region = "us-east-1"
+bastion_security_group_id = "sg-09fde64609fd14b9d"
+internet_gateway_id = "igw-0328a474805998c23"
+nat_gateway_id = "nat-03e5d9f19b93dd913"
+private_route_table_id = "rtb-0a58155eb618d2f4d"
+private_subnet_ids = [
+  "subnet-0452c2f12e977d7a2",
+  "subnet-0f6a095e909bde55b",
+]
+private_workload_security_group_id = "sg-01642c510135a5c48"
+project_name = "Sentinel-Foundation-AWS"
+public_route_table_id = "rtb-06f0d405016b13b81"
+public_subnet_ids = [
+  "subnet-0b0958b45074309d1",
+  "subnet-02fe44697a8fa2e57",
+]
+vpc_cidr = "10.20.0.0/16"
+vpc_id = "vpc-041a277d11b81fc73"
+web_security_group_id = "sg-05894e0a7b7293052"
