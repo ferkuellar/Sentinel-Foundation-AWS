@@ -1,0 +1,80 @@
+Listado de rutas de carpetas para el volumen OS
+El n·mero de serie del volumen es 5A1D-6801
+C:.
+ª   .gitignore
+ª   README.md
+ª   
++---.github
+ª   +---workflows
+ª           terraform-validate.yml
+ª           
++---diagrams
+ª       executive-one-pager.mmd
+ª       phase-0-bootstrap.mmd
+ª       
++---docs
+ª   +---adr
+ª   ª       ADR-001-custom-foundation-vs-control-tower.md
+ª   ª       
+ª   +---costs
+ª   +---governance
+ª   ª       governance-model.md
+ª   ª       naming-tagging-standard.md
+ª   ª       
+ª   +---operations
+ª   +---roadmap
+ª   +---security
++---evidence
+ª   +---phase-0
+ª   ª   ª   notes.md
+ª   ª   ª   
+ª   ª   +---cli
+ª   ª   ª       aws-version.txt
+ª   ª   ª       git-log.txt
+ª   ª   ª       git-status.txt
+ª   ª   ª       repo-tree.txt
+ª   ª   ª       sts-get-caller-identity.json
+ª   ª   ª       terraform-fmt.txt
+ª   ª   ª       terraform-init.txt
+ª   ª   ª       terraform-validate.txt
+ª   ª   ª       terraform-version.txt
+ª   ª   ª       
+ª   ª   +---screenshots
+ª   ª           F0-Tree.png
+ª   ª           F0-Versions.png
+ª   ª           
+ª   +---phase-1
+ª   ª       git-log.txt
+ª   ª       git-status.txt
+ª   ª       notes.md
+ª   ª       repo-tree.txt
+ª   ª       
+ª   +---phase-2
+ª   +---phase-3
+ª   +---phase-4
+ª   +---phase-5
+ª   +---phase-6
+ª   +---phase-7
++---infra
+    +---terraform
+        +---envs
+        ª   +---dev
+        ª       ª   .terraform.lock.hcl
+        ª       ª   main.tf
+        ª       ª   outputs.tf
+        ª       ª   providers.tf
+        ª       ª   terraform.tfvars
+        ª       ª   variables.tf
+        ª       ª   versions.tf
+        ª       ª   
+        ª       +---.terraform
+        ª           +---providers
+        ª               +---registry.terraform.io
+        ª                   +---hashicorp
+        ª                       +---aws
+        ª                           +---5.100.0
+        ª                               +---windows_amd64
+        ª                                       LICENSE.txt
+        ª                                       terraform-provider-aws_v5.100.0_x5.exe
+        ª                                       
+        +---modules

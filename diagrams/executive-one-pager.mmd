@@ -1,0 +1,68 @@
+flowchart TB
+    org[AWS Organization]
+
+    subgraph ou1[Management OU]
+        mgmt[Management Account]
+        cicd[GitHub Actions / Terraform CI-CD]
+    end
+
+    subgraph ou2[Security OU]
+        sec[Security Account]
+        loga[Log Archive Account]
+        kms[KMS CMK]
+        ct[CloudTrail]
+        cfg[AWS Config]
+        cw[CloudWatch Logs]
+        s3[S3 Audit / Log Buckets]
+        sns[SNS Alerts]
+        bud[Budgets]
+    end
+
+    subgraph ou3[Workloads OU]
+        shared[Shared Services Account]
+        dev[Workloads Dev Account]
+        prod[Workloads Prod Account]
+    end
+
+    subgraph net[Reusable Network Foundation]
+        vpc[VPC]
+        pub[Public Subnets]
+        priv[Private Subnets]
+        sg[Security Groups]
+        bastion[Bastion / Admin Access Pattern]
+        flow[VPC Flow Logs]
+    end
+
+    org --> ou1
+    org --> ou2
+    org --> ou3
+
+    mgmt --> cicd
+    cicd --> dev
+    cicd --> prod
+
+    dev --> vpc
+    prod --> vpc
+
+    vpc --> pub
+    vpc --> priv
+    vpc --> sg
+    pub --> bastion
+    vpc --> flow
+
+    sec --> kms
+    sec --> ct
+    sec --> cfg
+    sec --> cw
+    sec --> s3
+    sec --> sns
+    sec --> bud
+
+    ct --> s3
+    cfg --> s3
+    flow --> cw
+    kms --> ct
+    kms --> cw
+    kms --> s3
+
+    bud --> sns
