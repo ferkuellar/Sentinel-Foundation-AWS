@@ -300,7 +300,7 @@ This makes the repo stronger during reviews because it shows not only what was b
 </p>
 
 <p align="center">
-  <img src="./evidence/phase-0/screenshots/F5-aws-budget-summary.png" alt="AWS Budget summary evidence" width="95%">
+  <img src="./evidence/phase-0/screenshots/F5-AWS-Budget-summary.png" alt="AWS Budget summary evidence" width="95%">
 </p>
 
 ---
