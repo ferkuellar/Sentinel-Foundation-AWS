@@ -1,0 +1,34 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+	deleted:    evidence/phase-0/screenshots/F4-AWSConfigSettingsRecorder.png
+	deleted:    evidence/phase-0/screenshots/F4-CloudWatch Alarms.png
+	deleted:    evidence/phase-0/screenshots/F4-CloudWatchDash.png
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	diagrams/enterprise-roadmap.mmd
+	diagrams/sentinel-architecture-overview.png
+	diagrams/sentinel-cicd-flow.png
+	diagrams/sentinel-executive-diagram.png
+	diagrams/sentinel-hero-banner.png
+	diagrams/sentinel-roadmap.png
+	diagrams/sentinel-technical-diagram.png
+	docs/adr/ADR-006-bastion-vs-session-manager.md
+	docs/destroy-procedure.md
+	docs/interview-talking-points.md
+	docs/risks.md
+	docs/roadmap-enterprise.md
+	docs/screenshots-checklist.md
+	docs/security-model.md
+	docs/trade-offs.md
+	evidence/phase-0/screenshots/F4-CloudWatch-Alarms.png
+	evidence/phase-0/screenshots/F4-aws-config-recorder.png
+	evidence/phase-0/screenshots/F4-cloudwatch-dashboard.png
+	evidence/phase-7/
+
+no changes added to commit (use "git add" and/or "git commit -a")

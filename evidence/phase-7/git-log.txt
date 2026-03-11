@@ -1,0 +1,10 @@
+61d166a ci: improve Terraform workflow for validate and plan
+63899f1 ci: configure AWS credentials for Terraform plan
+8ab1112 fix: remove hardcoded AWS profile from provider
+5b2d730 yaml corregido
+e78c60e style: format terraform files
+d039eeb feat: complete AWS secure foundation baseline phases
+85c0bb1 ci: add GitHub Actions pipeline for terraform fmt validate plan and artifact publishing
+8a7728e feat: implement phase 4 governance controls and monitoring baseline with AWS Config
+d7a14b3 feat: implement phase 3 logging encryption and audit baseline with Terraform
+e348678 phase3

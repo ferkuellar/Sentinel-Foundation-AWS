@@ -1,0 +1,73 @@
+data.aws_availability_zones.available: Reading...
+data.aws_iam_policy_document.flow_logs_assume_role: Reading...
+data.aws_iam_policy_document.cloudtrail_assume_role: Reading...
+data.aws_caller_identity.current: Reading...
+data.aws_iam_policy_document.config_assume_role: Reading...
+aws_eip.nat: Refreshing state... [id=eipalloc-063c40f1c2849e71c]
+aws_vpc.main: Refreshing state... [id=vpc-041a277d11b81fc73]
+aws_sns_topic.foundation_alerts: Refreshing state... [id=arn:aws:sns:us-east-1:151567229153:nbf-sentinel-dev-alerts]
+data.aws_iam_policy_document.config_assume_role: Read complete after 0s [id=607352202]
+data.aws_iam_policy_document.cloudtrail_assume_role: Read complete after 0s [id=1399789601]
+data.aws_iam_policy_document.flow_logs_assume_role: Read complete after 0s [id=2717921857]
+aws_iam_role.config: Refreshing state... [id=nbf-sentinel-dev-role-config]
+aws_iam_role.cloudtrail_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-cloudtrail-cw]
+aws_iam_role.flow_logs: Refreshing state... [id=nbf-sentinel-dev-role-flowlogs]
+data.aws_caller_identity.current: Read complete after 0s [id=151567229153]
+data.aws_iam_policy_document.kms_key_policy: Reading...
+aws_s3_bucket.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153]
+data.aws_iam_policy_document.kms_key_policy: Read complete after 0s [id=3934369820]
+aws_kms_key.logs: Refreshing state... [id=f90c9566-cb3b-4ef3-aa77-42770ca2250c]
+data.aws_availability_zones.available: Read complete after 0s [id=us-east-1]
+aws_sns_topic_subscription.email: Refreshing state... [id=arn:aws:sns:us-east-1:151567229153:nbf-sentinel-dev-alerts:0f42bf5f-6b96-4492-89f1-3ade15ea819e]
+aws_budgets_budget.monthly_foundation: Refreshing state... [id=151567229153:sentinel-foundation-monthly-budget]
+aws_iam_role_policy_attachment.config_managed_policy: Refreshing state... [id=nbf-sentinel-dev-role-config-20260310015801938800000001]
+aws_kms_alias.logs: Refreshing state... [id=alias/nbf-sentinel-dev-logs]
+aws_cloudwatch_log_group.flow_logs: Refreshing state... [id=/aws/vpc/flowlogs/nbf-sentinel-dev]
+aws_cloudwatch_log_group.cloudtrail: Refreshing state... [id=/aws/cloudtrail/nbf-sentinel-dev]
+aws_config_configuration_recorder.main: Refreshing state... [id=aegis-lz-aws-dev-config-recorder]
+data.aws_iam_policy_document.cloudtrail_to_cloudwatch: Reading...
+aws_cloudwatch_metric_alarm.config_recorder_visibility: Refreshing state... [id=nbf-sentinel-dev-config-delivery-failures-visibility]
+data.aws_iam_policy_document.cloudtrail_to_cloudwatch: Read complete after 0s [id=3617006135]
+aws_iam_role_policy.cloudtrail_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-cloudtrail-cw:nbf-sentinel-dev-policy-cloudtrail-cw]
+data.aws_iam_policy_document.flow_logs_to_cloudwatch: Reading...
+data.aws_iam_policy_document.flow_logs_to_cloudwatch: Read complete after 0s [id=1465543951]
+aws_iam_role_policy.flow_logs_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-flowlogs:nbf-sentinel-dev-policy-flowlogs]
+aws_config_delivery_channel.main: Refreshing state... [id=aegis-lz-aws-dev-config-delivery-channel]
+aws_route_table.public: Refreshing state... [id=rtb-06f0d405016b13b81]
+aws_subnet.public_a: Refreshing state... [id=subnet-0b0958b45074309d1]
+aws_security_group.bastion: Refreshing state... [id=sg-09fde64609fd14b9d]
+aws_subnet.public_b: Refreshing state... [id=subnet-02fe44697a8fa2e57]
+aws_flow_log.vpc: Refreshing state... [id=fl-04d3c391c1ed7d9ba]
+aws_subnet.private_b: Refreshing state... [id=subnet-0f6a095e909bde55b]
+aws_subnet.private_a: Refreshing state... [id=subnet-0452c2f12e977d7a2]
+aws_internet_gateway.main: Refreshing state... [id=igw-0328a474805998c23]
+aws_route_table.private: Refreshing state... [id=rtb-0a58155eb618d2f4d]
+aws_config_configuration_recorder_status.main: Refreshing state... [id=aegis-lz-aws-dev-config-recorder]
+aws_security_group.alb_or_web: Refreshing state... [id=sg-05894e0a7b7293052]
+data.aws_iam_policy_document.cloudtrail_bucket_policy: Reading...
+data.aws_iam_policy_document.cloudtrail_bucket_policy: Read complete after 0s [id=604222953]
+aws_s3_bucket_public_access_block.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153]
+aws_s3_bucket_server_side_encryption_configuration.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153]
+aws_s3_bucket_versioning.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153]
+data.aws_iam_policy_document.config_bucket_policy: Reading...
+data.aws_iam_policy_document.config_bucket_policy: Read complete after 0s [id=4116150093]
+aws_security_group.private_workload: Refreshing state... [id=sg-01642c510135a5c48]
+aws_route_table_association.public_a: Refreshing state... [id=rtbassoc-09b79b90f8857d6ec]
+aws_route_table_association.public_b: Refreshing state... [id=rtbassoc-05852a68dc9ee83b2]
+data.aws_iam_policy_document.merged_audit_bucket_policy: Reading...
+data.aws_iam_policy_document.merged_audit_bucket_policy: Read complete after 0s [id=2628665009]
+aws_route.public_internet_access: Refreshing state... [id=r-rtb-06f0d405016b13b811080289494]
+aws_nat_gateway.main: Refreshing state... [id=nat-03e5d9f19b93dd913]
+aws_s3_bucket_policy.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153]
+aws_route_table_association.private_a: Refreshing state... [id=rtbassoc-0910b4da26dbda192]
+aws_cloudwatch_dashboard.foundation[0]: Refreshing state... [id=nbf-sentinel-dev-foundation-overview]
+aws_route.private_nat_egress: Refreshing state... [id=r-rtb-0a58155eb618d2f4d1080289494]
+aws_cloudwatch_metric_alarm.nat_error_port_allocation: Refreshing state... [id=nbf-sentinel-dev-nat-error-port-allocation]
+aws_cloudtrail.main: Refreshing state... [id=arn:aws:cloudtrail:us-east-1:151567229153:trail/nbf-sentinel-dev-trail]
+aws_cloudwatch_metric_alarm.nat_packets_drop: Refreshing state... [id=nbf-sentinel-dev-nat-packets-drop]
+aws_route_table_association.private_b: Refreshing state... [id=rtbassoc-074e6e4c2eaf65826]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

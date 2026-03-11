@@ -1,0 +1,189 @@
+Listado de rutas de carpetas para el volumen OS
+El n·mero de serie del volumen es 5A1D-6801
+C:.
+ª   .gitignore
+ª   README.md
+ª   
++---.github
+ª   +---workflows
+ª           terraform-validate.yml
+ª           
++---diagrams
+ª       enterprise-roadmap.mmd
+ª       executive-one-pager.mmd
+ª       phase-0-bootstrap.mmd
+ª       sentinel-architecture-overview.png
+ª       sentinel-cicd-flow.png
+ª       sentinel-executive-diagram.png
+ª       sentinel-hero-banner.png
+ª       sentinel-roadmap.png
+ª       sentinel-technical-diagram.png
+ª       technical-detail-cost.mmd
+ª       technical-detail.mmd
+ª       
++---docs
+ª   ª   destroy-procedure.md
+ª   ª   interview-talking-points.md
+ª   ª   risks.md
+ª   ª   roadmap-enterprise.md
+ª   ª   screenshots-checklist.md
+ª   ª   security-model.md
+ª   ª   trade-offs.md
+ª   ª   
+ª   +---adr
+ª   ª       ADR-001-custom-foundation-vs-control-tower.md
+ª   ª       ADR-002-single-nat-vs-per-az-nat.md
+ª   ª       ADR-003-cmk-vs-aws-managed-keys.md
+ª   ª       ADR-004-cloudtrail-plus-flowlogs.md
+ª   ª       ADR-005-config-baseline-before-advanced-controls.md
+ª   ª       ADR-006-bastion-vs-session-manager.md
+ª   ª       
+ª   +---costs
+ª   ª       estimated-costs.md
+ª   ª       
+ª   +---governance
+ª   ª       governance-model.md
+ª   ª       naming-tagging-standard.md
+ª   ª       
+ª   +---operations
+ª   ª       alerting-design.md
+ª   ª       health-model.md
+ª   ª       monitoring-notes.md
+ª   ª       quota-strategy.md
+ª   ª       
+ª   +---roadmap
+ª   +---security
++---evidence
+ª   +---phase-0
+ª   ª   ª   notes.md
+ª   ª   ª   
+ª   ª   +---cli
+ª   ª   ª       aws-version.txt
+ª   ª   ª       git-log.txt
+ª   ª   ª       git-status.txt
+ª   ª   ª       repo-tree.txt
+ª   ª   ª       sts-get-caller-identity.json
+ª   ª   ª       terraform-fmt.txt
+ª   ª   ª       terraform-init.txt
+ª   ª   ª       terraform-validate.txt
+ª   ª   ª       terraform-version.txt
+ª   ª   ª       
+ª   ª   +---screenshots
+ª   ª           F0-Tree.png
+ª   ª           F0-Versions.png
+ª   ª           F2-IGw.png
+ª   ª           F2-NatGetaway.png
+ª   ª           F2-RouteTable.png
+ª   ª           F2-SubNetlist.png
+ª   ª           F2-TechDiag.png
+ª   ª           F2-VPC.png
+ª   ª           F4-aws-config-recorder.png
+ª   ª           F4-CloudWatch-Alarms.png
+ª   ª           F4-cloudwatch-dashboard.png
+ª   ª           F5-AWS-Budget-summary.png
+ª   ª           F5-Confirmation-Subscription.png
+ª   ª           F5-Mail-Confirmation.png
+ª   ª           F5-SNS-Subscription.png
+ª   ª           F5-SNS-Topic.png
+ª   ª           F6-actions-run-summary.png
+ª   ª           F6-workflow-file.png
+ª   ª           
+ª   +---phase-1
+ª   ª       git-log.txt
+ª   ª       git-status.txt
+ª   ª       notes.md
+ª   ª       repo-tree.txt
+ª   ª       
+ª   +---phase-2
+ª   ª       describe-igw.json
+ª   ª       describe-nat.json
+ª   ª       describe-route-tables.json
+ª   ª       describe-security-groups.json
+ª   ª       describe-subnets.json
+ª   ª       describe-vpc.json
+ª   ª       notes.md
+ª   ª       terraform-apply.txt
+ª   ª       terraform-fmt.txt
+ª   ª       terraform-init.txt
+ª   ª       terraform-plan.txt
+ª   ª       terraform-validate.txt
+ª   ª       
+ª   +---phase-3
+ª   ª       bucket-encryption.json
+ª   ª       describe-flow-logs.json
+ª   ª       describe-log-groups.json
+ª   ª       describe-trails.json
+ª   ª       kms-describe-key.json
+ª   ª       notes.md
+ª   ª       terraform-fmt.txt
+ª   ª       terraform-init.txt
+ª   ª       terraform-output.json
+ª   ª       terraform-plan.txt
+ª   ª       terraform-validate.txt
+ª   ª       
+ª   +---phase-4
+ª   ª       describe-alarms.json
+ª   ª       describe-config-delivery-channels.json
+ª   ª       describe-config-recorder-status.json
+ª   ª       describe-config-recorders.json
+ª   ª       list-dashboards.json
+ª   ª       notes.md
+ª   ª       terraform-fmt.txt
+ª   ª       terraform-init.txt
+ª   ª       terraform-output.json
+ª   ª       terraform-plan.txt
+ª   ª       terraform-validate.txt
+ª   ª       
+ª   +---phase-5
+ª   ª       budget-summary.json
+ª   ª       notes.md
+ª   ª       sns-list-topics.json
+ª   ª       sns-subscriptions.json
+ª   ª       terraform-apply.txt
+ª   ª       terraform-fmt.txt
+ª   ª       terraform-init.txt
+ª   ª       terraform-output.json
+ª   ª       terraform-plan.txt
+ª   ª       terraform-validate.txt
+ª   ª       
+ª   +---phase-6
+ª   ª       notes.md
+ª   ª       terraform-fmt-check.txt
+ª   ª       terraform-init.txt
+ª   ª       terraform-plan.txt
+ª   ª       terraform-validate.txt
+ª   ª       tfplan.txt
+ª   ª       
+ª   +---phase-7
+ª           git-log.txt
+ª           git-status.txt
+ª           notes.md
+ª           repo-tree.txt
+ª           
++---infra
+    +---terraform
+        +---envs
+        ª   +---dev
+        ª       ª   .terraform.lock.hcl
+        ª       ª   main.tf
+        ª       ª   outputs.tf
+        ª       ª   providers.tf
+        ª       ª   terraform.tfstate
+        ª       ª   terraform.tfstate.backup
+        ª       ª   terraform.tfvars
+        ª       ª   tfplan
+        ª       ª   tfplan.txt
+        ª       ª   variables.tf
+        ª       ª   versions.tf
+        ª       ª   
+        ª       +---.terraform
+        ª           +---providers
+        ª               +---registry.terraform.io
+        ª                   +---hashicorp
+        ª                       +---aws
+        ª                           +---5.100.0
+        ª                               +---windows_amd64
+        ª                                       LICENSE.txt
+        ª                                       terraform-provider-aws_v5.100.0_x5.exe
+        ª                                       
+        +---modules
