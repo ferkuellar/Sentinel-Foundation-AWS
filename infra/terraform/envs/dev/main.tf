@@ -745,6 +745,8 @@ resource "aws_cloudwatch_metric_alarm" "nat_error_port_allocation" {
   statistic           = "Sum"
   threshold           = 0
   treat_missing_data  = "notBreaching"
+  alarm_actions       = [aws_sns_topic.foundation_alerts.arn]
+  ok_actions          = [aws_sns_topic.foundation_alerts.arn]
 
   dimensions = {
     NatGatewayId = aws_nat_gateway.main.id
@@ -767,6 +769,8 @@ resource "aws_cloudwatch_metric_alarm" "nat_packets_drop" {
   statistic           = "Sum"
   threshold           = 0
   treat_missing_data  = "notBreaching"
+  alarm_actions       = [aws_sns_topic.foundation_alerts.arn]
+  ok_actions          = [aws_sns_topic.foundation_alerts.arn]
 
   dimensions = {
     NatGatewayId = aws_nat_gateway.main.id
@@ -789,6 +793,8 @@ resource "aws_cloudwatch_metric_alarm" "config_recorder_visibility" {
   statistic           = "Sum"
   threshold           = 0
   treat_missing_data  = "notBreaching"
+  alarm_actions       = [aws_sns_topic.foundation_alerts.arn]
+  ok_actions          = [aws_sns_topic.foundation_alerts.arn]
 
   dimensions = {
     LogGroupName = aws_cloudwatch_log_group.cloudtrail.name
@@ -797,5 +803,49 @@ resource "aws_cloudwatch_metric_alarm" "config_recorder_visibility" {
   tags = {
     Name = "${local.name_prefix}-config-delivery-failures-visibility"
     Role = "monitoring-design"
+  }
+}
+
+resource "aws_sns_topic" "foundation_alerts" {
+  name = "${local.name_prefix}-alerts"
+
+  tags = {
+    Name = "${local.name_prefix}-alerts"
+    Role = "alerting"
+  }
+}
+
+resource "aws_sns_topic_subscription" "email" {
+  topic_arn = aws_sns_topic.foundation_alerts.arn
+  protocol  = "email"
+  endpoint  = var.budget_email_address
+}
+
+resource "aws_budgets_budget" "monthly_foundation" {
+  name         = var.budget_name
+  budget_type  = "COST"
+  limit_amount = var.budget_limit_amount
+  limit_unit   = "USD"
+  time_unit    = "MONTHLY"
+
+  cost_filter {
+    name   = "TagKeyValue"
+    values = ["Project$${var.project_name}"]
+  }
+
+  notification {
+    comparison_operator       = "GREATER_THAN"
+    threshold                 = 80
+    threshold_type            = "PERCENTAGE"
+    notification_type         = "ACTUAL"
+    subscriber_sns_topic_arns = [aws_sns_topic.foundation_alerts.arn]
+  }
+
+  notification {
+    comparison_operator       = "GREATER_THAN"
+    threshold                 = 100
+    threshold_type            = "PERCENTAGE"
+    notification_type         = "FORECASTED"
+    subscriber_sns_topic_arns = [aws_sns_topic.foundation_alerts.arn]
   }
 }

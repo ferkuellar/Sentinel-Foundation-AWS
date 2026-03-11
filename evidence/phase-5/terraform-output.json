@@ -1,0 +1,194 @@
+{
+  "audit_logs_bucket_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nbf-sentinel-dev-audit-151567229153"
+  },
+  "availability_zones_used": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "us-east-1a",
+      "us-east-1b"
+    ]
+  },
+  "aws_region": {
+    "sensitive": false,
+    "type": "string",
+    "value": "us-east-1"
+  },
+  "bastion_security_group_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sg-09fde64609fd14b9d"
+  },
+  "cloudtrail_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:cloudtrail:us-east-1:151567229153:trail/nbf-sentinel-dev-trail"
+  },
+  "cloudtrail_log_group_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "/aws/cloudtrail/nbf-sentinel-dev"
+  },
+  "cloudtrail_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nbf-sentinel-dev-trail"
+  },
+  "config_delivery_channel_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "aegis-lz-aws-dev-config-delivery-channel"
+  },
+  "config_recorder_enabled": {
+    "sensitive": false,
+    "type": "bool",
+    "value": true
+  },
+  "config_recorder_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "aegis-lz-aws-dev-config-recorder"
+  },
+  "config_role_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:iam::151567229153:role/nbf-sentinel-dev-role-config"
+  },
+  "flow_log_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "fl-04d3c391c1ed7d9ba"
+  },
+  "flow_logs_log_group_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "/aws/vpc/flowlogs/nbf-sentinel-dev"
+  },
+  "internet_gateway_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "igw-0328a474805998c23"
+  },
+  "kms_key_alias": {
+    "sensitive": false,
+    "type": "string",
+    "value": "alias/nbf-sentinel-dev-logs"
+  },
+  "kms_key_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:kms:us-east-1:151567229153:key/f90c9566-cb3b-4ef3-aa77-42770ca2250c"
+  },
+  "monitoring_dashboard_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nbf-sentinel-dev-foundation-overview"
+  },
+  "monthly_budget_limit": {
+    "sensitive": false,
+    "type": "string",
+    "value": "25.0"
+  },
+  "monthly_budget_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sentinel-foundation-monthly-budget"
+  },
+  "nat_error_alarm_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nbf-sentinel-dev-nat-error-port-allocation"
+  },
+  "nat_gateway_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nat-03e5d9f19b93dd913"
+  },
+  "nat_packets_drop_alarm_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "nbf-sentinel-dev-nat-packets-drop"
+  },
+  "private_route_table_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "rtb-0a58155eb618d2f4d"
+  },
+  "private_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0452c2f12e977d7a2",
+      "subnet-0f6a095e909bde55b"
+    ]
+  },
+  "private_workload_security_group_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sg-01642c510135a5c48"
+  },
+  "project_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "Sentinel-Foundation-AWS"
+  },
+  "public_route_table_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "rtb-06f0d405016b13b81"
+  },
+  "public_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0b0958b45074309d1",
+      "subnet-02fe44697a8fa2e57"
+    ]
+  },
+  "sns_subscription_endpoint": {
+    "sensitive": false,
+    "type": "string",
+    "value": "fercuellar@gmail.com"
+  },
+  "sns_topic_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:sns:us-east-1:151567229153:nbf-sentinel-dev-alerts"
+  },
+  "vpc_cidr": {
+    "sensitive": false,
+    "type": "string",
+    "value": "10.20.0.0/16"
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-041a277d11b81fc73"
+  },
+  "web_security_group_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "sg-05894e0a7b7293052"
+  }
+}

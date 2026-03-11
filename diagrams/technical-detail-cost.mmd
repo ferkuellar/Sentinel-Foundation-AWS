@@ -1,0 +1,69 @@
+flowchart LR
+    internet[Internet]
+
+    subgraph aws[AWS Account / Workloads Dev]
+        subgraph vpc[VPC 10.20.0.0/16]
+            igw[Internet Gateway]
+
+            subgraph pub1[Public Subnet A]
+                bastion[Bastion Pattern]
+                nat[NAT Gateway]
+            end
+
+            subgraph pub2[Public Subnet B]
+                web[Public Web / ALB Pattern]
+            end
+
+            subgraph priv1[Private Subnet A]
+                app1[Private Workload A]
+            end
+
+            subgraph priv2[Private Subnet B]
+                app2[Private Workload B]
+            end
+
+            flow[VPC Flow Logs]
+        end
+
+        subgraph audit[Audit and Governance]
+            kms[KMS CMK]
+            trail[CloudTrail]
+            s3[S3 Audit Bucket]
+            cwtrail[CloudWatch Log Group\nCloudTrail]
+            cwflow[CloudWatch Log Group\nFlow Logs]
+            recorder[Config Recorder]
+            delivery[Config Delivery Channel]
+        end
+
+        subgraph monitoring[Monitoring and Cost Controls]
+            dashboard[CloudWatch Dashboard]
+            alarm1[NAT Error Alarm]
+            alarm2[Packets Drop Alarm]
+            budget[AWS Budget]
+            sns[SNS Alerts]
+        end
+    end
+
+    internet --> igw
+    igw --> bastion
+    igw --> web
+    bastion --> app1
+    bastion --> app2
+    app1 --> nat
+    app2 --> nat
+    nat --> igw
+    flow --> cwflow
+
+    trail --> s3
+    trail --> cwtrail
+    kms --> s3
+    kms --> cwtrail
+    kms --> cwflow
+    recorder --> delivery
+    delivery --> s3
+
+    dashboard --> alarm1
+    dashboard --> alarm2
+    alarm1 --> sns
+    alarm2 --> sns
+    budget --> sns

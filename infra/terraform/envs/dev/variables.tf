@@ -80,3 +80,20 @@ variable "enable_monitoring_dashboard" {
   type        = bool
   default     = true
 }
+
+variable "budget_limit_amount" {
+  description = "Monthly budget limit amount in USD"
+  type        = string
+  default     = "25"
+}
+
+variable "budget_email_address" {
+  description = "Email address for budget and alert notifications"
+  type        = string
+}
+
+variable "budget_name" {
+  description = "Name of the monthly AWS budget"
+  type        = string
+  default     = "sentinel-foundation-monthly-budget"
+}

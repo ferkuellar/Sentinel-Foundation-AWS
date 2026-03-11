@@ -1,0 +1,11 @@
+{
+    "Subscriptions": [
+        {
+            "SubscriptionArn": "PendingConfirmation",
+            "Owner": "151567229153",
+            "Protocol": "email",
+            "Endpoint": "fercuellar@gmail.com",
+            "TopicArn": "arn:aws:sns:us-east-1:151567229153:nbf-sentinel-dev-alerts"
+        }
+    ]
+}

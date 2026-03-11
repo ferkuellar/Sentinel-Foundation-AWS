@@ -34,3 +34,5 @@ See `/docs`, `/diagrams`, `/infra`, and `/evidence`.
 ## Status
 
 Bootstrap in progress.
+
+![Terraform CI](https://github.com/ferkuellar/Sentinel-Foundation-AWS/actions/workflows/terraform-ci.yml/badge.svg)

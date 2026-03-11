@@ -1,0 +1,73 @@
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_assume_role: Reading...[0m[0m
+[0m[1mdata.aws_availability_zones.available: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.config_assume_role: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_assume_role: Reading...[0m[0m
+[0m[1maws_eip.nat: Refreshing state... [id=eipalloc-063c40f1c2849e71c][0m
+[0m[1maws_vpc.main: Refreshing state... [id=vpc-041a277d11b81fc73][0m
+[0m[1maws_sns_topic.foundation_alerts: Refreshing state... [id=arn:aws:sns:us-east-1:151567229153:nbf-sentinel-dev-alerts][0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_assume_role: Read complete after 0s [id=2717921857][0m
+[0m[1mdata.aws_iam_policy_document.config_assume_role: Read complete after 0s [id=607352202][0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_assume_role: Read complete after 0s [id=1399789601][0m
+[0m[1maws_iam_role.config: Refreshing state... [id=nbf-sentinel-dev-role-config][0m
+[0m[1maws_iam_role.cloudtrail_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-cloudtrail-cw][0m
+[0m[1maws_iam_role.flow_logs: Refreshing state... [id=nbf-sentinel-dev-role-flowlogs][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 0s [id=151567229153][0m
+[0m[1mdata.aws_iam_policy_document.kms_key_policy: Reading...[0m[0m
+[0m[1maws_s3_bucket.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1mdata.aws_iam_policy_document.kms_key_policy: Read complete after 0s [id=3934369820][0m
+[0m[1maws_kms_key.logs: Refreshing state... [id=f90c9566-cb3b-4ef3-aa77-42770ca2250c][0m
+[0m[1mdata.aws_availability_zones.available: Read complete after 0s [id=us-east-1][0m
+[0m[1maws_cloudwatch_log_group.flow_logs: Refreshing state... [id=/aws/vpc/flowlogs/nbf-sentinel-dev][0m
+[0m[1maws_kms_alias.logs: Refreshing state... [id=alias/nbf-sentinel-dev-logs][0m
+[0m[1maws_cloudwatch_log_group.cloudtrail: Refreshing state... [id=/aws/cloudtrail/nbf-sentinel-dev][0m
+[0m[1maws_sns_topic_subscription.email: Refreshing state... [id=arn:aws:sns:us-east-1:151567229153:nbf-sentinel-dev-alerts:0f42bf5f-6b96-4492-89f1-3ade15ea819e][0m
+[0m[1maws_budgets_budget.monthly_foundation: Refreshing state... [id=151567229153:sentinel-foundation-monthly-budget][0m
+[0m[1maws_iam_role_policy_attachment.config_managed_policy: Refreshing state... [id=nbf-sentinel-dev-role-config-20260310015801938800000001][0m
+[0m[1maws_config_configuration_recorder.main: Refreshing state... [id=aegis-lz-aws-dev-config-recorder][0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_to_cloudwatch: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_to_cloudwatch: Read complete after 0s [id=3617006135][0m
+[0m[1maws_cloudwatch_metric_alarm.config_recorder_visibility: Refreshing state... [id=nbf-sentinel-dev-config-delivery-failures-visibility][0m
+[0m[1maws_iam_role_policy.cloudtrail_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-cloudtrail-cw:nbf-sentinel-dev-policy-cloudtrail-cw][0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_to_cloudwatch: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.flow_logs_to_cloudwatch: Read complete after 0s [id=1465543951][0m
+[0m[1maws_iam_role_policy.flow_logs_to_cloudwatch: Refreshing state... [id=nbf-sentinel-dev-role-flowlogs:nbf-sentinel-dev-policy-flowlogs][0m
+[0m[1maws_config_delivery_channel.main: Refreshing state... [id=aegis-lz-aws-dev-config-delivery-channel][0m
+[0m[1maws_config_configuration_recorder_status.main: Refreshing state... [id=aegis-lz-aws-dev-config-recorder][0m
+[0m[1maws_subnet.public_b: Refreshing state... [id=subnet-02fe44697a8fa2e57][0m
+[0m[1maws_route_table.private: Refreshing state... [id=rtb-0a58155eb618d2f4d][0m
+[0m[1maws_subnet.private_a: Refreshing state... [id=subnet-0452c2f12e977d7a2][0m
+[0m[1maws_internet_gateway.main: Refreshing state... [id=igw-0328a474805998c23][0m
+[0m[1maws_subnet.public_a: Refreshing state... [id=subnet-0b0958b45074309d1][0m
+[0m[1maws_flow_log.vpc: Refreshing state... [id=fl-04d3c391c1ed7d9ba][0m
+[0m[1maws_security_group.bastion: Refreshing state... [id=sg-09fde64609fd14b9d][0m
+[0m[1maws_route_table.public: Refreshing state... [id=rtb-06f0d405016b13b81][0m
+[0m[1maws_subnet.private_b: Refreshing state... [id=subnet-0f6a095e909bde55b][0m
+[0m[1maws_security_group.alb_or_web: Refreshing state... [id=sg-05894e0a7b7293052][0m
+[0m[1maws_route_table_association.private_a: Refreshing state... [id=rtbassoc-0910b4da26dbda192][0m
+[0m[1maws_s3_bucket_public_access_block.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_bucket_policy: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.cloudtrail_bucket_policy: Read complete after 0s [id=604222953][0m
+[0m[1maws_s3_bucket_versioning.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1maws_s3_bucket_server_side_encryption_configuration.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1mdata.aws_iam_policy_document.config_bucket_policy: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.config_bucket_policy: Read complete after 0s [id=4116150093][0m
+[0m[1mdata.aws_iam_policy_document.merged_audit_bucket_policy: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.merged_audit_bucket_policy: Read complete after 0s [id=2628665009][0m
+[0m[1maws_s3_bucket_policy.audit_logs: Refreshing state... [id=nbf-sentinel-dev-audit-151567229153][0m
+[0m[1maws_nat_gateway.main: Refreshing state... [id=nat-03e5d9f19b93dd913][0m
+[0m[1maws_route.public_internet_access: Refreshing state... [id=r-rtb-06f0d405016b13b811080289494][0m
+[0m[1maws_route_table_association.public_b: Refreshing state... [id=rtbassoc-05852a68dc9ee83b2][0m
+[0m[1maws_route_table_association.public_a: Refreshing state... [id=rtbassoc-09b79b90f8857d6ec][0m
+[0m[1maws_route_table_association.private_b: Refreshing state... [id=rtbassoc-074e6e4c2eaf65826][0m
+[0m[1maws_cloudwatch_metric_alarm.nat_error_port_allocation: Refreshing state... [id=nbf-sentinel-dev-nat-error-port-allocation][0m
+[0m[1maws_cloudwatch_metric_alarm.nat_packets_drop: Refreshing state... [id=nbf-sentinel-dev-nat-packets-drop][0m
+[0m[1maws_route.private_nat_egress: Refreshing state... [id=r-rtb-0a58155eb618d2f4d1080289494][0m
+[0m[1maws_cloudwatch_dashboard.foundation[0]: Refreshing state... [id=nbf-sentinel-dev-foundation-overview][0m
+[0m[1maws_security_group.private_workload: Refreshing state... [id=sg-01642c510135a5c48][0m
+[0m[1maws_cloudtrail.main: Refreshing state... [id=arn:aws:cloudtrail:us-east-1:151567229153:trail/nbf-sentinel-dev-trail][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

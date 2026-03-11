@@ -119,3 +119,19 @@ output "nat_error_alarm_name" {
 output "nat_packets_drop_alarm_name" {
   value = aws_cloudwatch_metric_alarm.nat_packets_drop.alarm_name
 }
+
+output "sns_topic_arn" {
+  value = aws_sns_topic.foundation_alerts.arn
+}
+
+output "sns_subscription_endpoint" {
+  value = aws_sns_topic_subscription.email.endpoint
+}
+
+output "monthly_budget_name" {
+  value = aws_budgets_budget.monthly_foundation.name
+}
+
+output "monthly_budget_limit" {
+  value = aws_budgets_budget.monthly_foundation.limit_amount
+}

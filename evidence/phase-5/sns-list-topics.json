@@ -1,0 +1,10 @@
+{
+    "Topics": [
+        {
+            "TopicArn": "arn:aws:sns:us-east-1:151567229153:aegis-lz-aws-dev-budget-alerts"
+        },
+        {
+            "TopicArn": "arn:aws:sns:us-east-1:151567229153:nbf-sentinel-dev-alerts"
+        }
+    ]
+}
