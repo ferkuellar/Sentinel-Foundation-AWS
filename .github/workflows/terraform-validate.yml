@@ -2,9 +2,9 @@ name: Terraform CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -38,12 +38,15 @@ jobs:
         run: terraform validate
 
       - name: Terraform plan
+        if: github.event_name != 'pull_request'
         run: terraform plan -no-color -out=tfplan
 
       - name: Export human-readable plan
+        if: github.event_name != 'pull_request'
         run: terraform show -no-color tfplan > tfplan.txt
 
       - name: Upload plan artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: terraform-plan
